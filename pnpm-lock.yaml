@@ -7,31 +7,31 @@ settings:
 dependencies:
   '@adeora/solid-start-node':
     specifier: ^0.3.9
-    version: 0.3.9(solid-start@0.3.8)(vite@4.5.0)
+    version: 0.3.9(solid-start@0.3.9)(vite@4.5.0)
   '@solid-primitives/keyed':
     specifier: ^1.2.0
     version: 1.2.0(solid-js@1.8.5)
   '@solidjs/meta':
-    specifier: ^0.28.6
-    version: 0.28.7(solid-js@1.8.5)
+    specifier: ^0.29.1
+    version: 0.29.1(solid-js@1.8.5)
   '@solidjs/router':
     specifier: ^0.8.3
     version: 0.8.3(solid-js@1.8.5)
   '@tanstack/solid-query':
-    specifier: ^5.4.3
-    version: 5.4.3(solid-js@1.8.5)
+    specifier: ^5.7.2
+    version: 5.7.2(solid-js@1.8.5)
   '@tanstack/solid-query-devtools':
-    specifier: ^5.4.3
-    version: 5.4.3(@tanstack/solid-query@5.4.3)(solid-js@1.8.5)
+    specifier: ^5.7.2
+    version: 5.7.2(@tanstack/solid-query@5.7.2)(solid-js@1.8.5)
   solid-js:
-    specifier: ^1.8.3
+    specifier: ^1.8.5
     version: 1.8.5
   solid-start:
-    specifier: ^0.3.8
-    version: 0.3.8(@solidjs/meta@0.28.7)(@solidjs/router@0.8.3)(solid-js@1.8.5)(solid-start-node@0.3.8)(solid-start-vercel@0.3.9)(vite@4.5.0)
+    specifier: ^0.3.9
+    version: 0.3.9(@solidjs/meta@0.29.1)(@solidjs/router@0.8.3)(solid-js@1.8.5)(solid-start-node@0.3.9)(solid-start-vercel@0.3.9)(vite@4.5.0)
   solid-start-vercel:
     specifier: ^0.3.9
-    version: 0.3.9(solid-start@0.3.8)(vite@4.5.0)
+    version: 0.3.9(solid-start@0.3.9)(vite@4.5.0)
   solid-transition-group:
     specifier: ^0.2.3
     version: 0.2.3(solid-js@1.8.5)
@@ -44,8 +44,8 @@ devDependencies:
     specifier: ^8.4.28
     version: 8.4.31
   solid-start-node:
-    specifier: ^0.3.8
-    version: 0.3.8(solid-start@0.3.8)(vite@4.5.0)
+    specifier: ^0.3.9
+    version: 0.3.9(solid-start@0.3.9)(vite@4.5.0)
   tailwindcss:
     specifier: ^3.3.3
     version: 3.3.5
@@ -53,12 +53,12 @@ devDependencies:
     specifier: ^4.9.5
     version: 4.9.5
   vite:
-    specifier: ^4.4.9
+    specifier: ^4.5.0
     version: 4.5.0
 
 packages:
 
-  /@adeora/solid-start-node@0.3.9(solid-start@0.3.8)(vite@4.5.0):
+  /@adeora/solid-start-node@0.3.9(solid-start@0.3.9)(vite@4.5.0):
     resolution: {integrity: sha512-X9H+CTzHu8n+NFlQBAzS6QW1K82NiKOn1v1czrOvnNbleZOWHl1EYWuM499pmemk0iEBMJu/5UkmAS1GHlILsw==}
     peerDependencies:
       solid-start: ^0.3.9
@@ -71,7 +71,7 @@ packages:
       polka: 1.0.0-next.22
       rollup: 3.29.4
       sirv: 2.0.3
-      solid-start: 0.3.8(@solidjs/meta@0.28.7)(@solidjs/router@0.8.3)(solid-js@1.8.5)(solid-start-node@0.3.8)(solid-start-vercel@0.3.9)(vite@4.5.0)
+      solid-start: 0.3.9(@solidjs/meta@0.29.1)(@solidjs/router@0.8.3)(solid-js@1.8.5)(solid-start-node@0.3.9)(solid-start-vercel@0.3.9)(vite@4.5.0)
       terser: 5.24.0
       vite: 4.5.0
     transitivePeerDependencies:
@@ -1734,10 +1734,10 @@ packages:
       solid-js: 1.8.5
     dev: false
 
-  /@solidjs/meta@0.28.7(solid-js@1.8.5):
-    resolution: {integrity: sha512-4desKFvITOV9sc0KE47NxDhMikAVZTU9i5WH4wNvmN6ta50+KKDUr2pPBCvvxSuH+Z4x8TmN+iYW81I3ZTyXGw==}
+  /@solidjs/meta@0.29.1(solid-js@1.8.5):
+    resolution: {integrity: sha512-qtrBYCnRRuzyvBg/u/SRO/2fM5r6DT1YKf+2W1RZhveMoeXHbZpWIrXjgpLFRHJLn6cqAGqrIzu42qS2o+1hKQ==}
     peerDependencies:
-      solid-js: '>=1.4.0'
+      solid-js: '>=1.8.4'
     dependencies:
       solid-js: 1.8.5
 
@@ -1748,31 +1748,31 @@ packages:
     dependencies:
       solid-js: 1.8.5
 
-  /@tanstack/query-core@5.4.3:
-    resolution: {integrity: sha512-fnI9ORjcuLGm1sNrKatKIosRQUpuqcD4SV7RqRSVmj8JSicX2aoMyKryHEBpVQvf6N4PaBVgBxQomjsbsGPssQ==}
+  /@tanstack/query-core@5.7.2:
+    resolution: {integrity: sha512-vPYoNCOI8W+jFLnyEAYQL7/qURE7XzVE/TvkmNSko8LU55jFshee342p4GNFOTsYFgJty7Da5bw4m2P3vaKWMw==}
     dev: false
 
   /@tanstack/query-devtools@5.4.2:
     resolution: {integrity: sha512-EXdaMXi8CxZuMp97J5mq6wy1RduOfoWFv5vtA1U+hyqb8Wst6M8kkkjDSdFvGZIRpYY4K8mKLlEFHNUZDG5dtw==}
     dev: false
 
-  /@tanstack/solid-query-devtools@5.4.3(@tanstack/solid-query@5.4.3)(solid-js@1.8.5):
-    resolution: {integrity: sha512-owBJTJRsNBvRBYopYdSAKGz6oqt7Qsr5/FjAN2rkgIdFmPvhoqQ+zvE7quufXnDo/haiUb40lYWy3H+HH+7uwA==}
+  /@tanstack/solid-query-devtools@5.7.2(@tanstack/solid-query@5.7.2)(solid-js@1.8.5):
+    resolution: {integrity: sha512-7YQHWk21JiI9QqTZVYpzIrKzfqVp/CAvA+4fiBYgm4+MNre9rE961HOfhpACPARC0hyNIZCUZKl9X++m4SWHrA==}
     peerDependencies:
-      '@tanstack/solid-query': ^5.4.3
+      '@tanstack/solid-query': ^5.7.2
       solid-js: ^1.7.8
     dependencies:
       '@tanstack/query-devtools': 5.4.2
-      '@tanstack/solid-query': 5.4.3(solid-js@1.8.5)
+      '@tanstack/solid-query': 5.7.2(solid-js@1.8.5)
       solid-js: 1.8.5
     dev: false
 
-  /@tanstack/solid-query@5.4.3(solid-js@1.8.5):
-    resolution: {integrity: sha512-vC+EmPZF8GeKCwiGmTIPHdZT9pXZqpATt37YHPhDUnfccTRQYx0jF3OBWDrbVk2bzKOEddJrlzbGh9SppNW9Cw==}
+  /@tanstack/solid-query@5.7.2(solid-js@1.8.5):
+    resolution: {integrity: sha512-fvd/SzFU6EZkr83tn+guhUr3YEROY6JtqMcJVL9uJxQkgD9iu5cSUO1xP0ynpg4V53VF3WM7JHPc+bQOTcvZ4A==}
     peerDependencies:
       solid-js: ^1.6.0
     dependencies:
-      '@tanstack/query-core': 5.4.3
+      '@tanstack/query-core': 5.7.2
       solid-js: 1.8.5
     dev: false
 
@@ -3290,8 +3290,8 @@ packages:
       '@babel/types': 7.23.0
       solid-js: 1.8.5
 
-  /solid-start-node@0.3.8(solid-start@0.3.8)(vite@4.5.0):
-    resolution: {integrity: sha512-zIaGkP3U+PEQuQXe5ixQpSeioyKXQ1l0CpzC/oEW0TNodQdOC/0zgnvy9ffQMe8uoshVDnArKvomVXz/4E3m6Q==}
+  /solid-start-node@0.3.9(solid-start@0.3.9)(vite@4.5.0):
+    resolution: {integrity: sha512-BWE4g2CqTzq3L2e4TX7kfFC++YiOUqbNFuReLW0gji091qb2sVKqaCBLInfsoLDNAdNdU2Fj659ZZn33b2JqUQ==}
     peerDependencies:
       solid-start: '*'
       vite: '*'
@@ -3303,13 +3303,13 @@ packages:
       polka: 1.0.0-next.22
       rollup: 3.29.4
       sirv: 2.0.3
-      solid-start: 0.3.8(@solidjs/meta@0.28.7)(@solidjs/router@0.8.3)(solid-js@1.8.5)(solid-start-node@0.3.8)(solid-start-vercel@0.3.9)(vite@4.5.0)
+      solid-start: 0.3.9(@solidjs/meta@0.29.1)(@solidjs/router@0.8.3)(solid-js@1.8.5)(solid-start-node@0.3.9)(solid-start-vercel@0.3.9)(vite@4.5.0)
       terser: 5.24.0
       vite: 4.5.0
     transitivePeerDependencies:
       - supports-color
 
-  /solid-start-vercel@0.3.9(solid-start@0.3.8)(vite@4.5.0):
+  /solid-start-vercel@0.3.9(solid-start@0.3.9)(vite@4.5.0):
     resolution: {integrity: sha512-6TNb++9/ywJJYq9T2qG3t2IBy79J0WD+g0enYU8xunpZA37QeK+8Q/TDrWxJFGqIKzkGVwe6n90fdCf54FimXA==}
     peerDependencies:
       solid-start: '*'
@@ -3322,20 +3322,20 @@ packages:
       fast-glob: 3.2.12
       micromatch: 4.0.5
       rollup: 3.29.4
-      solid-start: 0.3.8(@solidjs/meta@0.28.7)(@solidjs/router@0.8.3)(solid-js@1.8.5)(solid-start-node@0.3.8)(solid-start-vercel@0.3.9)(vite@4.5.0)
+      solid-start: 0.3.9(@solidjs/meta@0.29.1)(@solidjs/router@0.8.3)(solid-js@1.8.5)(solid-start-node@0.3.9)(solid-start-vercel@0.3.9)(vite@4.5.0)
       terser: 5.24.0
       vite: 4.5.0
     transitivePeerDependencies:
       - encoding
       - supports-color
 
-  /solid-start@0.3.8(@solidjs/meta@0.28.7)(@solidjs/router@0.8.3)(solid-js@1.8.5)(solid-start-node@0.3.8)(solid-start-vercel@0.3.9)(vite@4.5.0):
-    resolution: {integrity: sha512-tTk2FHrSJHz0Kmx2jwvaThn1CRGgcjditWAXoBk3is92ik34zcm5Qdx0olLf+hszP54IPi02/k/V+68RrYlDoQ==}
+  /solid-start@0.3.9(@solidjs/meta@0.29.1)(@solidjs/router@0.8.3)(solid-js@1.8.5)(solid-start-node@0.3.9)(solid-start-vercel@0.3.9)(vite@4.5.0):
+    resolution: {integrity: sha512-hh3JaoUW6prfnwuAaB/rF4zkM/8Z+vGLO+8iUosiqfBmYWdkCPCGRsKrc1UhBK9H4Z3b6wirqFfP/5aeq0cLGw==}
     hasBin: true
     peerDependencies:
-      '@solidjs/meta': ^0.28.0
+      '@solidjs/meta': ^0.29.1
       '@solidjs/router': ^0.8.2
-      solid-js: ^1.6.2
+      solid-js: ^1.8.4
       solid-start-aws: '*'
       solid-start-cloudflare-pages: '*'
       solid-start-cloudflare-workers: '*'
@@ -3369,7 +3369,7 @@ packages:
       '@babel/preset-env': 7.23.2(@babel/core@7.23.2)
       '@babel/preset-typescript': 7.23.2(@babel/core@7.23.2)
       '@babel/template': 7.22.15
-      '@solidjs/meta': 0.28.7(solid-js@1.8.5)
+      '@solidjs/meta': 0.29.1(solid-js@1.8.5)
       '@solidjs/router': 0.8.3(solid-js@1.8.5)
       '@types/cookie': 0.5.3
       '@types/debug': 4.1.10
@@ -3394,8 +3394,8 @@ packages:
       set-cookie-parser: 2.6.0
       sirv: 2.0.3
       solid-js: 1.8.5
-      solid-start-node: 0.3.8(solid-start@0.3.8)(vite@4.5.0)
-      solid-start-vercel: 0.3.9(solid-start@0.3.8)(vite@4.5.0)
+      solid-start-node: 0.3.9(solid-start@0.3.9)(vite@4.5.0)
+      solid-start-vercel: 0.3.9(solid-start@0.3.9)(vite@4.5.0)
       terser: 5.24.0
       undici: 5.27.0
       vite: 4.5.0
