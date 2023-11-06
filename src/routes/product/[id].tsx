@@ -1,5 +1,5 @@
 import { Key } from "@solid-primitives/keyed";
-import { createQuery } from "@tanstack/solid-query";
+import {createQuery, useQueryClient} from "@tanstack/solid-query";
 import {
   For,
   Show,
@@ -9,6 +9,7 @@ import {
   createResource,
   createSignal,
 } from "solid-js";
+import { RouteDataFuncArgs } from "@solidjs/router"
 import { isServer } from "solid-js/web";
 import { A, useParams } from "solid-start";
 import server$ from "solid-start/server";
@@ -16,21 +17,25 @@ import { Star } from "~/components/icons";
 import { API_URL, Product, RecommendedPick, Comment } from "~/utils";
 
 const getProduct = server$(async (id: string) => {
+  console.log(`fetch product ${id}`);
   const res = await fetch(`${API_URL}/products/details/${id}`);
   return res.json() as Promise<Product>;
 });
 
 const getRecommendedPicks = server$(async (id: string) => {
+  console.log(`fetch recommended ${id}`);
   const res = await fetch(`${API_URL}/products/recommended/${id}`);
   return res.json() as Promise<RecommendedPick[]>;
 });
 
 const getReviews = server$(async (id: string) => {
+  console.log(`fetch reviews ${id}`);
   const res = await fetch(`${API_URL}/products/comments/${id}`);
   return res.json() as Promise<Comment[]>;
 });
 
 const getAvailableSizes = server$(async (id: string) => {
+  console.log(`fetch sizes ${id}`);
   const res = await fetch(`${API_URL}/products/sizes/${id}`);
   return res.json() as Promise<{
     total: string[];
@@ -38,12 +43,50 @@ const getAvailableSizes = server$(async (id: string) => {
   }>;
 });
 
+export function routeData({ params }: RouteDataFuncArgs) {
+  const queryClient = useQueryClient();
+
+  queryClient.prefetchQuery({
+    queryKey: ["product", params.id],
+    queryFn: () => getProduct(params.id),
+    staleTime: 5 * 60 * 1000
+  }).then(() => {
+    console.log(`PREFETCH product ${params.id} DONE`);
+  });
+
+  queryClient.prefetchQuery({
+    queryKey: ["sizes", params.id],
+    queryFn: () => getAvailableSizes(params.id),
+    staleTime: 5 * 60 * 1000
+  }).then(() => {
+    console.log(`PREFETCH sizes ${params.id} DONE`);
+  });
+
+  queryClient.prefetchQuery({
+    queryKey: ["recommended", params.id],
+    queryFn: () => getRecommendedPicks(params.id),
+    staleTime: 5 * 60 * 1000
+  }).then(() => {
+    console.log(`PREFETCH recommended ${params.id} DONE`);
+  });
+
+  queryClient.prefetchQuery({
+    queryKey: ["reviews", params.id],
+    queryFn: () => getReviews(params.id),
+    staleTime: 5 * 60 * 1000
+  }).then(() => {
+    console.log(`PREFETCH reviews  ${params.id} DONE`);
+  });
+}
+
 export default function ProductDetails() {
   const params = useParams();
+  createEffect(()=>console.debug(`ProductDetails for ${params.id}`));
 
   const product = createQuery(() => ({
     queryKey: ["product", params.id],
     queryFn: () => getProduct(params.id),
+    staleTime: 5 * 60 * 1000
   }));
 
   return (
@@ -74,6 +117,7 @@ const Gallery = () => {
       return data.images;
     },
     placeholderData: (d) => d,
+    staleTime: 5 * 60 * 1000
   }));
 
   return (
@@ -125,6 +169,7 @@ const Info = () => {
     queryKey: ["product", params.id],
     queryFn: () => getProduct(params.id),
     placeholderData: (d) => d,
+    staleTime: 5 * 60 * 1000,
     deferStream: true,
   }));
 
@@ -164,6 +209,7 @@ const Sizes = () => {
   const sizes = createQuery(() => ({
     queryKey: ["sizes", params.id],
     queryFn: () => getAvailableSizes(params.id),
+    staleTime: 5 * 60 * 1000
   }));
 
   const [selectedSize, setSelectedSize] = createSignal<string | undefined>();
@@ -245,6 +291,7 @@ const RecommendedPicks = () => {
   const picks = createQuery(() => ({
     queryKey: ["recommended", params.id],
     queryFn: () => getRecommendedPicks(params.id),
+    staleTime: 5 * 60 * 1000
   }));
 
   return (
@@ -327,6 +374,7 @@ const Reviews = () => {
   const reviews = createQuery(() => ({
     queryKey: ["reviews", params.id],
     queryFn: () => getReviews(params.id),
+    staleTime: 5 * 60 * 1000
   }));
 
   return (
