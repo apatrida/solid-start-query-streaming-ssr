@@ -60,7 +60,6 @@ export default function ProductDetails() {
         staleTime: 5 * 60 * 1000
     }));
 
-    // BUG: note this does not show a change when loading query from cache on provider
     createEffect(()=>console.debug(`ProductDetails for ${product.data?.id}`));
 
     return (
@@ -86,7 +85,6 @@ export default function ProductDetails() {
 }
 
 const Gallery = () => {
-    // BUG: note this does not show a change when loading query from cache on provider
     const images = () => useProduct().images;
 
     return (
