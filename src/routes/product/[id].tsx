@@ -10,7 +10,7 @@ export function routeData({params}: RouteDataFuncArgs) {
     const queryClient = useQueryClient();
     queryClient.prefetchQuery({
         queryKey: ["product", params.id],
-        queryFn: () => getProduct(params.id),
+        queryFn: () => getProduct(Number(params.id)),
         staleTime: 5 * 60 * 1000
     }).then(() => {
         console.log(`PREFETCH product ${params.id} DONE`);
@@ -21,7 +21,7 @@ export default function ProductLayout() {
     const params = useParams();
     const product = createQuery(() => ({
         queryKey: ["product", params.id],
-        queryFn: () => getProduct(params.id),
+        queryFn: () => getProduct(Number(params.id)),
         staleTime: 5 * 60 * 1000
     }));
 

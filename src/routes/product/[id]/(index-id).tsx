@@ -13,7 +13,7 @@ import { isServer } from "solid-js/web";
 import { A, useParams } from "solid-start";
 import { Star } from "~/components/icons";
 import { Product, RecommendedPick, Comment } from "~/utils";
-import {getAvailableSizes, getProduct, getRecommendedPicks, getReviews} from "~/lib/api";
+import {getAvailableSizes, getRecommendedPicks, getReviews} from "~/lib/api";
 import {useProduct} from "~/lib/ProductProvider";
 
 
@@ -22,7 +22,7 @@ export function routeData({ params }: RouteDataFuncArgs) {
 
   queryClient.prefetchQuery({
     queryKey: ["sizes", params.id],
-    queryFn: () => getAvailableSizes(params.id),
+    queryFn: () => getAvailableSizes(Number(params.id)),
     staleTime: 5 * 60 * 1000
   }).then(() => {
     console.log(`PREFETCH sizes ${params.id} DONE`);
@@ -30,7 +30,7 @@ export function routeData({ params }: RouteDataFuncArgs) {
 
   queryClient.prefetchQuery({
     queryKey: ["recommended", params.id],
-    queryFn: () => getRecommendedPicks(params.id),
+    queryFn: () => getRecommendedPicks(Number(params.id)),
     staleTime: 5 * 60 * 1000
   }).then(() => {
     console.log(`PREFETCH recommended ${params.id} DONE`);
@@ -38,7 +38,7 @@ export function routeData({ params }: RouteDataFuncArgs) {
 
   queryClient.prefetchQuery({
     queryKey: ["reviews", params.id],
-    queryFn: () => getReviews(params.id),
+    queryFn: () => getReviews(Number(params.id)),
     staleTime: 5 * 60 * 1000
   }).then(() => {
     console.log(`PREFETCH reviews  ${params.id} DONE`);
@@ -116,31 +116,23 @@ const Gallery = () => {
 };
 
 const Info = () => {
-  const params = useParams();
-
-  const product = createQuery(() => ({
-    queryKey: ["product", params.id],
-    queryFn: () => getProduct(params.id),
-    placeholderData: (d) => d,
-    staleTime: 5 * 60 * 1000,
-    deferStream: true,
-  }));
+  const product = useProduct();
 
   return (
     <div class="flex-1 flex flex-col">
       <Suspense>
-        <h1 class="font-bold text-2xl">{product.data?.name}</h1>
+        <h1 class="font-bold text-2xl">{product.name}</h1>
 
-        <Show when={product.data?.price} keyed>
+        <Show when={product.price} keyed>
           {(price) => <DisplayPrice price={price} />}
         </Show>
 
-        <Show when={product.data?.rating} keyed>
+        <Show when={product.rating} keyed>
           {(rating) => <Ratings rating={rating} />}
         </Show>
 
         <p class="leading-tight text-gray-600 pt-2">
-          {product.data?.description}
+          {product.description}
         </p>
       </Suspense>
 
@@ -157,18 +149,18 @@ const Info = () => {
 };
 
 const Sizes = () => {
-  const params = useParams();
+  const product = useProduct();
 
   const sizes = createQuery(() => ({
-    queryKey: ["sizes", params.id],
-    queryFn: () => getAvailableSizes(params.id),
+    queryKey: ["sizes", product.id],
+    queryFn: () => getAvailableSizes(product.id),
     staleTime: 5 * 60 * 1000
   }));
 
   const [selectedSize, setSelectedSize] = createSignal<string | undefined>();
 
   createEffect(() => {
-    const id = params.id;
+    const id = product.id;
     setSelectedSize(undefined);
   });
 
@@ -239,11 +231,11 @@ const DisplayPrice = (props: { price: Product["price"] }) => {
 };
 
 const RecommendedPicks = () => {
-  const params = useParams();
+  const product = useProduct();
 
   const picks = createQuery(() => ({
-    queryKey: ["recommended", params.id],
-    queryFn: () => getRecommendedPicks(params.id),
+    queryKey: ["recommended", product.id],
+    queryFn: () => getRecommendedPicks(product.id),
     staleTime: 5 * 60 * 1000
   }));
 
@@ -323,10 +315,10 @@ const PlaceholderPicks = () => {
 };
 
 const Reviews = () => {
-  const params = useParams();
+  const product = useProduct();
   const reviews = createQuery(() => ({
-    queryKey: ["reviews", params.id],
-    queryFn: () => getReviews(params.id),
+    queryKey: ["reviews", product.id],
+    queryFn: () => getReviews(product.id),
     staleTime: 5 * 60 * 1000
   }));
 
