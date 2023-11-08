@@ -1,4 +1,4 @@
-import {Accessor, createContext, ParentComponent, useContext} from "solid-js";
+import {createContext, ParentComponent, useContext} from "solid-js";
 import {Product} from "~/utils";
 import {CreateQueryResult} from "@tanstack/solid-query";
 
